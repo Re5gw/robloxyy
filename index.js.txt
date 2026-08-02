@@ -1,0 +1,15 @@
+const express = require('express');
+const app = express();
+
+app.get('/get-chat-code', (req, res) => {
+    const chatLuauCode = `
+        return function()
+            print("تم تشغيل الشات بنجاح!")
+            -- ضع كود الشات هنا
+        end
+    `;
+    res.send(chatLuauCode);
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
